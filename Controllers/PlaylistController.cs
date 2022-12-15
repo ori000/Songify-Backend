@@ -26,8 +26,8 @@ namespace Songify.Controllers
         [HttpGet, Authorize]
         public ActionResult<string> GetMe()
         {
-            var userName = _playlistService.GetMyPlaylist();
-            return Ok(userName);
+            var playlist = _playlistService.GetMyPlaylist();
+            return Ok(playlist);
         }
 
         [HttpPost("register")]

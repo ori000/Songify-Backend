@@ -86,9 +86,11 @@ namespace Songify.Controllers
             var validPassword = false;
             {
                 validUser = _context.user.Any(user => user.Username == request.Username);
+                //Console.WriteLine(_context.user.Find(request.Username));
+                //Console.WriteLine(_context.user.First().Username);
                 if (validUser) 
                 {
-                    foreach(User u in users) 
+                    foreach(User u in _context.user) 
                     {
                         if (u.Username == request.Username && u.PasswordHash != null && u.PasswordSalt != null) 
                         {
